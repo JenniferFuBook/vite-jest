@@ -1,7 +1,8 @@
 export default {
   testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.(ts|tsx)?$': 'ts-jest',
+    '^.+\\.(js|jsx)$': 'babel-jest',
   },
 
   moduleNameMapper: {
@@ -10,4 +11,8 @@ export default {
   },
 
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+
+  transformIgnorePatterns: [
+    '/node_modules/(?!react-markdown)/'
+  ]
 };
